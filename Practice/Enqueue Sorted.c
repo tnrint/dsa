@@ -60,7 +60,7 @@ void enqueueSorted(Queue *Q, int x) {
     //implement code here...
     Queue temp;
     initialize(&temp);
-  
+  if(!isFull(*Q)){
     while(!isEmpty(*Q) && Q->elems[Q->front] < x){
       enqueue(&temp, Q->elems[Q->front]);
       dequeue(Q);
@@ -76,6 +76,7 @@ void enqueueSorted(Queue *Q, int x) {
   while(!isEmpty(temp)){
     enqueue(Q, temp.elems[temp.front]);
     dequeue(&temp);
+  }
   }
 }
 
